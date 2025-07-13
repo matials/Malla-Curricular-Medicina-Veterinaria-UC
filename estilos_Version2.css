@@ -1,0 +1,193 @@
+body {
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 32px auto;
+  background: rgba(255,255,255,0.85);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  padding: 24px 32px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.6em;
+  color: #e67e22;
+  margin-bottom: 32px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px #f6e58d;
+}
+
+.semestre {
+  margin-bottom: 32px;
+}
+
+.semestre-titulo {
+  font-size: 1.6em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  color: #6c3483;
+  text-shadow: 1px 1px 6px #d2b4de;
+}
+
+.ramos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+}
+
+.ramo {
+  position: relative;
+  padding: 24px 12px 16px 12px;
+  border-radius: 16px;
+  font-size: 1.08em;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  transition: transform 0.12s, filter 0.12s;
+  user-select: none;
+  border: 2px solid transparent;
+  min-height: 65px;
+}
+
+.ramo:hover {
+  transform: scale(1.06);
+  filter: brightness(1.08);
+  border-color: #fff;
+}
+
+.ramo.tachado {
+  text-decoration: line-through;
+  filter: grayscale(0.4) brightness(1.2);
+  border-color: #333;
+  opacity: 0.8;
+}
+
+.ramo.tachado::after {
+  content: "✔";
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 1.5em;
+  color: #27ae60;
+}
+
+.ramo.optativo, .ramo.electivo, .ramo.internado-electivo {
+  border-style: dashed;
+  border-width: 2.5px;
+  font-style: italic;
+  font-size: 1em;
+}
+
+.ramo.nombre-editado {
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  font-style: normal;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(44, 62, 80, 0.28);
+  justify-content: center; align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 28px 28px 16px 28px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(52, 73, 94, 0.18);
+  text-align: center;
+  position: relative;
+  min-width: 320px;
+}
+
+.close {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  font-size: 2em;
+  color: #e74c3c;
+  cursor: pointer;
+}
+
+#modal-input {
+  width: 80%;
+  padding: 8px;
+  font-size: 1em;
+  margin: 18px 0 14px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#modal-confirm {
+  padding: 8px 24px;
+  background: #e67e22;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#modal-confirm:hover {
+  background: #f8b500;
+}
+
+/* Colores únicos por ramo (no repetir) */
+.ramo.color0 { background: #e57373; }   /* rojo suave */
+.ramo.color1 { background: #ba68c8; }   /* violeta */
+.ramo.color2 { background: #4fc3f7; }   /* celeste */
+.ramo.color3 { background: #81c784; }   /* verde claro */
+.ramo.color4 { background: #ffd54f; color: #7f6a00;}   /* amarillo */
+.ramo.color5 { background: #ffb74d; color: #875e00;}   /* naranjo */
+.ramo.color6 { background: #f06292; }   /* rosado */
+.ramo.color7 { background: #7986cb; }   /* azul cálido */
+.ramo.color8 { background: #aed581; color: #375a00;}   /* verde pasto */
+.ramo.color9 { background: #a1887f; }   /* café suave */
+.ramo.color10 { background: #64b5f6; }  /* azul */
+.ramo.color11 { background: #4db6ac; }  /* turquesa */
+.ramo.color12 { background: #e0e0e0; color: #444; }  /* gris claro */
+.ramo.color13 { background: #dce775; color: #405d19;}  /* verde lima */
+.ramo.color14 { background: #fff176; color: #7f6a00;}  /* amarillo brillante */
+.ramo.color15 { background: #f8bbd0; color: #833c5a;}  /* rosa pálido */
+.ramo.color16 { background: #b2dfdb; color: #005e5e;}  /* celeste agua */
+.ramo.color17 { background: #b3e5fc; color: #004f66;}  /* azul pastel */
+.ramo.color18 { background: #ff8a65; }  /* naranja fuerte */
+.ramo.color19 { background: #d4e157; color: #405d19;}  /* verde lima claro */
+.ramo.color20 { background: #ffd180; color: #875e00;}  /* durazno */
+.ramo.color21 { background: #e1bee7; color: #5c2d91;}  /* violeta pálido */
+.ramo.color22 { background: #c5cae9; color: #3643c3;}  /* azul lavanda */
+.ramo.color23 { background: #ffe082; color: #7f6a00;}  /* amarillo suave */
+.ramo.color24 { background: #a5d6a7; color: #375a00;}  /* verde pastel */
+.ramo.color25 { background: #b0bec5; color: #375a00;}  /* gris azul */
+.ramo.color26 { background: #ce93d8; color: #5c2d91;}  /* violeta suave */
+.ramo.color27 { background: #80cbc4; color: #005e5e;}  /* turquesa claro */
+.ramo.color28 { background: #ffccbc; color: #875e00;}  /* salmón pastel */
+.ramo.color29 { background: #fff9c4; color: #7f6a00;}  /* amarillo muy suave */
+.ramo.color30 { background: #e6ee9c; color: #405d19;}  /* verde muy suave */
+.ramo.color31 { background: #ffc1e3; color: #833c5a;}  /* rosa lavanda */
+.ramo.color32 { background: #d1c4e9; color: #3643c3;}  /* púrpura pastel */
+.ramo.color33 { background: #cfd8dc; color: #375a00;}  /* gris muy claro */
+.ramo.color34 { background: #f5f5f5; color: #444;}     /* blanco grisáceo */
+.ramo.color35 { background: #ffe0b2; color: #875e00;}  /* durazno pálido */
+.ramo.color36 { background: #e0f7fa; color: #004f66;}  /* celeste muy claro */
+.ramo.color37 { background: #c8e6c9; color: #375a00;}  /* verde brillante */
+.ramo.color38 { background: #f9fbe7; color: #405d19;}  /* verde muy pálido */
+.ramo.color39 { background: #d7ccc8; color: #375a00;}  /* café pastel */
+.ramo.color40 { background: #ffecb3; color: #7f6a00;}  /* amarillo pastel */
+.ramo.color41 { background: #b3e5fc; color: #004f66;}  /* azul pastel */
+.ramo.color42 { background: #fce4ec; color: #833c5a;}  /* rosa pastel */
+.ramo.color43 { background: #e1f5fe; color: #004f66;}  /* azul muy claro */
+.ramo.color44 { background: #f3e5f5; color: #5c2d91;}  /* violeta pastel */
+.ramo.color45 { background: #ede7f6; color: #3643c3;}  /* púrpura muy suave */
